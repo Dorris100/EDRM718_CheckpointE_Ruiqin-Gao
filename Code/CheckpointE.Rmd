@@ -27,7 +27,7 @@ health%>%
 ggplot(aes(x=hosp.beds, y=doctors))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth()+
-  labs(x="Number of physicians", y="Number of beds in hospital")
+  labs(y="Number of physicians", x="Number of beds in hospital")
 ```
 ###5
 ```{r}
@@ -37,7 +37,7 @@ health %>%
   ggplot(aes(x=hosp.beds, y=doctors))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth ()+
-  labs(x="Number of physicians", y="Number of beds in hospital")
+  labs(y="Number of physicians", x="Number of beds in hospital")
 ```
 ###6
 ```{r echo=TRUE}
@@ -46,7 +46,7 @@ health %>%
   ggplot(aes(x=hosp.beds, y=doctors))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth(method="lm")+
-  labs(x="Number of physicians", y="Number of beds(>1000) in hospital")
+  labs(y="Number of physicians", x="Number of beds(>1000) in hospital")
 ```
 ###7
 ```{r echo=TRUE}
@@ -86,7 +86,7 @@ health4<-health3 %>%
   ggplot(aes(x=hosp.beds, y=doctors, color=DensityLevel))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth(method="lm",se=FALSE)+
-  labs(x="Number of doctors",y="Number of hospital beds",
+  labs(y="Number of doctors",x="Number of hospital beds",
         title="Numer of doctors and number of hospital beds")
 health4
 ```
