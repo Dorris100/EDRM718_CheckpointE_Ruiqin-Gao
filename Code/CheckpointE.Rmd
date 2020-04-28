@@ -24,7 +24,7 @@ health
 ###4
 ```{r}
 health%>%
-ggplot(aes(x=doctors, y=hosp.beds))+
+ggplot(aes(x=hosp.beds, y=doctors))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth()+
   labs(x="Number of physicians", y="Number of beds in hospital")
@@ -33,16 +33,17 @@ ggplot(aes(x=doctors, y=hosp.beds))+
 ```{r}
 # Let's filter out the needed data
 health %>%
-  filter(hosp.beds > 1000 ) %>%
-  ggplot(aes(x=doctors, y=hosp.beds))+
+  filter(hosp.beds < 1000 ) %>%
+  ggplot(aes(x=hosp.beds, y=doctors))+
   geom_point(color= "red", size=3, shape=1)+
+  geom_smooth ()+
   labs(x="Number of physicians", y="Number of beds in hospital")
 ```
 ###6
 ```{r echo=TRUE}
 health %>%
-  filter(hosp.beds > 1000 ) %>%
-  ggplot(aes(x=doctors, y=hosp.beds))+
+  filter(hosp.beds < 1000 ) %>%
+  ggplot(aes(x=hosp.beds, y=doctors))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth(method="lm")+
   labs(x="Number of physicians", y="Number of beds(>1000) in hospital")
@@ -73,7 +74,7 @@ health3
 ```{r}
 health4<-health3 %>%
   filter(hosp.beds <1000 ) %>%
-  ggplot(aes(x=doctors, y=hosp.beds, color=DensityLevel))+
+  ggplot(aes(x=hosp.beds, y=doctors, color=DensityLevel))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth(method="lm",se=FALSE)
 health4
@@ -82,7 +83,7 @@ health4
 ```{r}
 health4<-health3 %>%
   filter(hosp.beds <1000 ) %>%
-  ggplot(aes(x=doctors, y=hosp.beds, color=DensityLevel))+
+  ggplot(aes(x=hosp.beds, y=doctors, color=DensityLevel))+
   geom_point(color= "red", size=3, shape=1)+
   geom_smooth(method="lm",se=FALSE)+
   labs(x="Number of doctors",y="Number of hospital beds",
